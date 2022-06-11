@@ -1,4 +1,4 @@
-/* CoMBI_Resize.ijm, (c) Yuki Tajika, 2022.6.10, CC BY-NC
+/* CoMBI Resize.ijm, (c) Yuki Tajika, 2022.6.10, CC BY-NC
 An ImageJ macro for processing serial images acquired by CoMBI. 
 Place this ijm file in ImageJ/plugins folder (Not macros folder), and a shortcut will be found in Menubar>plugins. 
 (Verified using ImageJ 1.53s for macOS/ARM on macOS12.4, FIJI/ImageJ2.3.0/1.53q on macOS12.4)
