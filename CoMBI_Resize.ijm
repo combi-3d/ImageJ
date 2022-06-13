@@ -1,12 +1,19 @@
-/* CoMBI Resize.ijm, (c) Yuki Tajika, 2022.6.10, CC BY-NC
-An ImageJ macro for processing serial images acquired by CoMBI. 
+/* CoMBI_Resize.ijm, (c) Yuki Tajika, 2022.6.10, CC BY-NC
+An ImageJ macro for resizing serial images acquired by CoMBI. 
+The macro created and verified using ImageJ 1.53s for macOS/ARM on macOS12.4, FIJI/ImageJ2.3.0/1.53q on macOS12.4.
+
+Setting up :  (2022.6)
+Use ImageJ 1.53p or newer. 
+For Apple silicon mac, use latest ImageJ_ARM (1.53s) or latest FIJI/mac (2.3.0/1.53q)
+Fo Intel mac, use only latest FIJI/mac (2.3.0/1.53q). Do not use ImageJ/Intel mac, bacause it is still 1.53k.
 Place this ijm file in ImageJ/plugins folder (Not macros folder), and a shortcut will be found in Menubar>plugins. 
-(Verified using ImageJ 1.53s for macOS/ARM on macOS12.4, FIJI/ImageJ2.3.0/1.53q on macOS12.4)
+
+Data:
 Prepare "a folder containing serial image" and "a scale image (reference image)", then run the macro.
 
 Macro runs: 
 1. Select a folder containing serial image.
-2. Calculate the pixel size of the scale image (reference image) or Use the pixel size of the previous experiment..
+2. Calculate the pixel size of the scale image (reference image) or Use the pixel size of the previous experiment.
 3. Plan the resizing process. By default, RGB series of 5μm/pixel, 10μm/pixel, and 20μm/pixel are created. 
     Custom pixel sizes can also be selected. Grayscale series (8-bit, inverted) can be created optionally in addition to RGB series.
 4. Create folders to store the resized images.
