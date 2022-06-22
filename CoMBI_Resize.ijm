@@ -29,14 +29,15 @@ list = getFileList(openDir);			//Get list. 配列listを取得、連続画像の
 				//Array.show(list); //Show list. ファイルリストを表としてしめす。Array.print(X);なら、Logウィンドウにテキストとしてしめされる。不要にした。
 
 
-open(openDir+list[0]);		//Open first image. 一枚目を開いて、フォルダ名とアドレス、画像サイズを求める
-namePath = getInfo("image.directory");	//Get address. アドレス情報を取得し、
-nameDir = File.getParent(namePath);	//Get address without folder. アドレス、格納フォルダを除く。
-nameFolder = File.getName(namePath);	//Get only folder name. 格納フォルダのみ
-widthSerial=getWidth();		//Get Width. 連続画像のサイズ
-heightSerial=getHeight();		//Get Height. 連続画像のサイズ
-close();
-wait(400)
+	open(openDir+list[0]);		//Open first image. 一枚目を開いて、フォルダ名とアドレス、画像サイズを求める
+	namePath = getInfo("image.directory");	//Get address. アドレス情報を取得し、
+	nameDir = File.getParent(namePath);	//Get address without folder. アドレス、格納フォルダを除く。
+	nameFolder = File.getName(namePath);	//Get only folder name. 格納フォルダのみ
+	widthSerial=getWidth();		//Get Width. 連続画像のサイズ
+	heightSerial=getHeight();		//Get Height. 連続画像のサイズ
+	close();
+	wait(200)
+
 
 
 print("===================");	//Show image info on Log window. Logに情報を表示する
@@ -63,7 +64,6 @@ Dialog.show();
 scaleRadioButton = Dialog.getRadioButton();
 lineLength = Dialog.getNumber();
 lineTick = Dialog.getNumber();
-
 
 //Refer Scale Image. Open a scale image and draw line. スケール画像を利用する場合、画像を開いて線を引く。
 if(scaleRadioButton == "Select a scale image"){
@@ -148,6 +148,10 @@ Dialog.addCheckbox("Custom (µm/pixel)", false);
 	Dialog.addMessage("==STEP2==");
 Dialog.addCheckbox("Create both RGB & grayscale series", false);
 	Dialog.addMessage("==STEP3==");
+Dialog.addCheckbox("Show resizing process", false);
+	Dialog.addMessage("Uncheck: Hide, Fast, Recommended");
+	Dialog.addMessage("Check: Show, Slow down to 50% speed");
+	Dialog.addMessage("==STEP4==");
 Dialog.addMessage("Click OK to start resizing.");
 Dialog.show();
 
@@ -157,6 +161,7 @@ check20um = Dialog.getCheckbox();
 checkCustom = Dialog.getCheckbox();
 pixelsizeCustom = Dialog.getNumber();
 createGrayscale = Dialog.getCheckbox();
+batchmode = Dialog.getCheckbox();
 
 if(check5um == true){
 	print("Image size :", width5um," x ",height5um," pixels");
@@ -259,6 +264,8 @@ File.makeDirectory(resizeDir+"_"+pixelsizeCustom+"um");
 
 //Run Resize 縮小処理
 
+setBatchMode(!batchmode);
+
 for (i=0; i<list.length; i++){
 	
 	open(openDir+list[i]);			//Open a image 指定した場所の画像を開く
@@ -336,6 +343,7 @@ close();
 
 }
 
+setBatchMode("show");
 
 //Memorize END time. 終了時刻を記録
 getDateAndTime(year, month, dayOfWeek, dayOfMonth, hour, minute, second, msec);
