@@ -1,27 +1,27 @@
-/* CoMBI_ImageStabilizer.ijm, (c) Yuki Tajika, 2022.6.11, CC BY-NC
+/* CoMBI_ImageStabilizer1x1.ijm, (c) Yuki Tajika, 2022.6.11, CC BY-NC
 
-An ImageJ macro for registration of serial images acquired by CoMBI:
+An ImageJ macro for registration of serial images acquired by CoMBI.
 Version 1x1 (One by One) runs registration step by step; register forward, check success and failure, register backward and check success and failure.
 Version 2x (Both 2 directions) runs registration forward then backward automatically.
 The macro created and verified using ImageJ 1.53s for macOS/ARM on macOS12.4, FIJI/ImageJ2.3.0/1.53q on macOS12.4.
 
 Setting up :  (2022.6)
-Use ImageJ 1.53p or newer. 
-For Apple silicon mac, use latest ImageJ_ARM (1.53s) or latest FIJI/mac (2.3.0/1.53q)
-Fo Intel mac, use only latest FIJI/mac (2.3.0/1.53q). Do not use ImageJ/Intel mac, bacause it is still 1.53k.
-Place this ijm file in ImageJ/plugins folder (Not macros folder), and a shortcut will be found in Menubar>plugins. 
+   Use ImageJ 1.53p or newer. 
+   For Apple silicon mac, use latest ImageJ_ARM (1.53s) or latest FIJI/mac (2.3.0/1.53q)
+   For Intel mac, use only latest FIJI/mac (2.3.0/1.53q). Do not use ImageJ/Intel mac, bacause it is still 1.53k.
+   Place this ijm file in ImageJ/plugins folder (Not macros folder), and a shortcut will be found in Menubar>plugins. 
 
-Data: 
-Prepare "a folder containing serial image" and "a scale image (reference image)", then run the macro.
+Preparation: 
+   "a folder containing serial image"
 
 Macro runs: 
-1. Select a folder containing serial image.
-2. Run plugin; Image Registration. From first to last image (Forward).
-3. [Success Forward] Save images and log, and end macro.
-4. [False Froward] Try again from last to first image (Backward).
-5. [Success Backward] Save images and log, and end macro.
-6. [False Backward] Save log only.
-7. Save work log.
+   1. Select a folder containing serial image.
+   2. Run plugin; Image Registration. From first to last image (Forward).
+   3. [Success Forward] Save images and log, and end macro.
+   4. [False Froward] Try again from last to first image (Backward).
+   5. [Success Backward] Save images and log, and end macro.
+   6. [False Backward] Save log only.
+   7. Save work log.
 
 */
 
@@ -152,7 +152,7 @@ run("Close All");
 //Save log as text. ログを保存
 selectWindow("Log");
 print("===================");
-saveAs("Text", nameDir+"/"+nameFolder+"_ImageStabilizer_Log_"+nameAddTime+".txt");
+saveAs("Text", nameDir+"/"+nameFolder+"_ImageStabilizer1x1_"+nameAddTime+".txt");
 
 //Make sound when process ends. 終了の合図。
 beep();
