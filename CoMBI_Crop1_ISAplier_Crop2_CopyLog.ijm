@@ -538,6 +538,8 @@ selectWindow(TEXTname);
 //Copy Log version
 selectWindow("Clipboard");
 
+run("Close");
+
 
 ////  Save log as text. 作業ログを保存   /////////////////////////////////
 
