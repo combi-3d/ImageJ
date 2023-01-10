@@ -38,6 +38,7 @@
 // 2022.6.24 Upload to GitHub.
 // 2022.6.24 Add function to save Grayscale images.
 // 2022.6.25 Bug fix. 'Skip Crop1' stopped macro at IS. Virtual stack is loaded into RAM, by Cropping full-size.
+// 2023.1.10 Bug fix. Dialog display H W > W H.
 
 
 //// Begin work log. 作業記録を開始   /////////////////////////////////////////////////////////////
