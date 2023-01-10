@@ -38,6 +38,7 @@
 // 2022.6.24 Upload to GitHub.
 // 2022.6.24 Add function to save Grayscale images.
 // 2022.6.25 Bug fix. 'Skip Crop1' stopped macro at IS. Virtual stack is loaded into RAM, by Cropping full-size.
+// 2022.1.10 Bug fix. Dialog display H W > W H.
 
 
 //// Begin work log. 作業記録を開始   /////////////////////////////////////////////////////////////
@@ -140,8 +141,8 @@ Dialog.create("Settings");
 	Dialog.addMessage("   In case of previous values");
   		Dialog.addNumber("         X :",crop1X);
   		Dialog.addNumber("         Y :",crop1Y);
-  		Dialog.addNumber("         H :",crop1W);
- 		Dialog.addNumber("         W :",crop1H);
+  		Dialog.addNumber("         W :",crop1W);
+ 		Dialog.addNumber("         H :",crop1H);
  	//Crop1 save
 	itemsCrop1save = newArray("Yes","No need");
 	Dialog.addRadioButtonGroup("     Save after Crop1",itemsCrop1save,1,2,"No need");
@@ -159,8 +160,8 @@ Dialog.create("Settings");
 	Dialog.addMessage("In case of previous values");
   		Dialog.addNumber("         X :",crop2X);
   		Dialog.addNumber("         Y :",crop2Y);
-  		Dialog.addNumber("         H :",crop2W);
- 		Dialog.addNumber("         W :",crop2H);
+  		Dialog.addNumber("         W :",crop2W);
+ 		Dialog.addNumber("         H :",crop2H);
  	//Crop2 save
 	itemsCrop2save = newArray("Yes","No need");
 	Dialog.addRadioButtonGroup("     Save after Crop2",itemsCrop2save,1,2,"Yes");
